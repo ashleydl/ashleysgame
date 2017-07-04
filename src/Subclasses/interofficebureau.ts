@@ -1,5 +1,6 @@
 class bureau extends RoomObject {
 
+    //teacher is behind the desk and you can ask something to her.
     constructor(name: string, description: string, teacher: string) {
         super(teacher, "Clarissa " + description  + name);
     }

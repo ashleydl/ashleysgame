@@ -116,7 +116,7 @@ class Game {
         return false;
     }
 
-    /**Grab the item or a message that there is no item */
+    //message when you pick up an item or a message that there is no item */
 
     getItem(params: string[]): boolean {
 
@@ -231,7 +231,7 @@ class Game {
         return false;
     }
 
-
+    //set next room command -> goes to room -> set currentroom -> print item -> get print exits out of room.ts
     changeRoom(nextRoom: Room) {
         this.currentRoom = nextRoom;
         this.out.println("Je nieuwe locatie is: " + this.currentRoom.description);
@@ -248,7 +248,7 @@ class Game {
     }
 
 
-      /*Using RoomObject to get an item*/
+      //Using RoomObject to get an item and checking if you have the right item to use it
     usecanonprinter(params: string[]): boolean {
         for (let i = 0; i < this.charInv.length; i++) {
             if (this.charInv[i].name == "minor") {
@@ -257,6 +257,8 @@ class Game {
         }
             }
         
+        //parser cuts "gebruik" and gives the rest of the words to the paramslist with a space inbetween.
+        //making a loop with the roomObjectWord if there is a object with the name what the user use.
         let roomObjectWord = params[0];
 
         for (let roomObject of this.currentRoom.roomObjects) {
@@ -330,7 +332,7 @@ class Game {
     }
     
 
-    
+    //The part to end the game. After that the game stop. 
 
      useItem(params: string[]): boolean {
         for (let i = 0; i < this.charInv.length; i++) {
@@ -343,6 +345,7 @@ class Game {
                 this.currentRoom = teacherroom;
                 return true;
             }
+            //if you picked the apple, you get an extra line.
             else {
                 if(this.charInv[i].name == "appel" && this.currentRoom.description == "in de lerarenkamer"){
                     this.out.println("Dankzij de ingeleverde appel krijg je een extra glimlach")

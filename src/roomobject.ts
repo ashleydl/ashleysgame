@@ -1,4 +1,4 @@
-abstract class RoomObject {
+ abstract class RoomObject {
 
     name: string
     protected description: string;
@@ -10,4 +10,5 @@ abstract class RoomObject {
 
     abstract use(game: Game) : void
     
+    //abstract is needed for using a RoomObject. Otherwise you can't do  roomObject.use(this);
 }
